@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marcos Pazi Goncheff — Portfolio</title>
+<meta name="description" content="Portfolio profesional de Marcos Paz Goncheff — Analista en Sistemas y Desarrollador Backend (Java, Spring Boot) con proyectos en GitHub.">
+
+<style>
+:root{
+  --bg:#0f1113;
+  --card:#151718;
+  --muted:#9aa0a6;
+  --accent:#3fb8a6;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --max-width:1100px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#070708 140%);
+  color:#e8eef0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:80px;
+}
+
+.container{max-width:var(--max-width);margin:40px auto;padding:24px}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;}
+.brand{display:flex;align-items:center;gap:12px}
+.profile-img{width:120px;height:120px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;margin-bottom:12px}
+h1{font-size:20px}
+.subtitle{color:var(--muted);font-size:13px}
+
+nav{display:flex;gap:14px;align-items:center}
+nav a{color:#e6eef0;text-decoration:none;font-weight:600;font-size:14px;padding:8px 10px;border-radius:8px}
+nav a:hover{background:var(--glass)}
+
+.menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:28px}
+.card{background:linear-gradient(180deg,var(--card),#0e0f10);border-radius:var(--radius);padding:20px;box-shadow:0 6px 20px rgba(0,0,0,0.6);transition:all 0.3s ease-in-out}
+.card:hover{transform:translateY(-4px)}
+
+.about p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.skill{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;text-align:center;font-weight:600}
+.skill small{display:block;color:var(--muted);font-weight:500;margin-top:6px;font-size:12px}
+
+/* projects */
+h2{color:var(--accent);margin-bottom:14px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#0f1113,#0b0c0d);border:1px solid rgba(255,255,255,0.03)}
+.project .cover{height:160px;background-size:cover;background-position:center;transition:transform 0.3s}
+.project:hover .cover{transform:scale(1.05)}
+.project .p-body{padding:14px}
+.p-title{font-weight:700;color:#eafaf5}
+.p-desc{color:var(--muted);font-size:14px;margin-top:8px}
+.p-links{display:flex;gap:8px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02);text-decoration:none;color:#eafaf5;font-weight:600;transition:all 0.2s}
+.btn:hover{background:var(--accent);color:#071010}
+
+/* timeline / experience */
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.exp{display:flex;gap:12px;align-items:flex-start}
+.exp .logo-sm{width:46px;height:46px;border-radius:8px;background:#0b0c0d;display:grid;place-items:center;color:var(--accent);font-weight:700}
+.exp .meta small{color:var(--muted)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form{display:flex;flex-direction:column;gap:10px}
+input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:8px;color:#eafaf5}
+.primary{background:linear-gradient(90deg,var(--accent),#2ca58d);border:none;color:#071010;padding:12px;border-radius:10px;font-weight:700;cursor:pointer}
+.primary:hover{opacity:0.9}
+
+/* certifications */
+.certifications{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:14px}
+.cert-card{background:linear-gradient(180deg,#151718,#0e0f10);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:8px;transition:all 0.3s}
+.cert-card:hover{transform:translateY(-4px)}
+.cert-card img{width:48px;height:48px;border-radius:8px;margin-right:10px}
+.cert-card h4{margin-bottom:4px;color:#eafaf5}
+.cert-card small{display:block;color:var(--muted);font-size:12px}
+
+footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  nav{display:none}
+  .menu-btn{display:inline-flex}
+}
+
+@media (max-width:520px){
+  .skills{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<style>
+  header {
+    width: 100%;
+    height: 250px; /* Ajustá el alto según lo que necesites */
+    background-image: url("./img/desktop-wallpaper-40-dark-in-for-laptop-and-tablets-dark-environment.jpg"); /* tu imagen */
+    background-size: cover;   /* La imagen se adapta al tamaño */
+    background-position: center; /* Centrada */
+    background-repeat: no-repeat; /* Que no se repita */
+    display: flex;
+opacity: 1.0;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Texto en blanco para contraste */
+    font-size: 24px;
+    font-weight: bold;
+  }
+</style>
+
+<header>
+  <div class="brand">
+    <img src="./img/1747340736629.jpeg" alt="Foto Marcos" class="profile-img">
+    <div>
+      <h1>Marcos Paz Goncheff</h1>
+      <div class="subtitle">Analista en Sistemas • Desarrollador Backend (Java / Spring Boot)</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">Sobre mí</a>
+    <a href="#skills">Habilidades</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#experience">Experiencia</a>
+    <a href="#certifications">Certificaciones</a>
+    <a href="#contact">Contacto</a>
+    <a href="https://github.com/marcosep192000" target="_blank">GitHub</a>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+</header>
+
+<main>
+<!-- Sobre mí -->
+<section id="about" class="hero">
+  <div class="card about">
+    <h2>Sobre mí</h2>
+    <p style="margin-top:10px">Soy Marcos, Analista en Sistemas y Desarrollador Backend con más de dos años de experiencia en tecnologías clave como <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Git</strong>, <strong>MySQL</strong>, <strong>JPA</strong> y <strong>Hibernate</strong>. Actualmente, estoy ampliando mis habilidades hacia el frontend con <strong>Angular</strong>, <strong>CSS</strong>, <strong>JavaScript</strong> y <strong>HTML</strong>.</p>
+    <div class="tags">
+      <div class="tag">Proactivo</div>
+      <div class="tag">Enfoque empresarial</div>
+      <div class="tag">Aprendizaje continuo</div>
+      <div class="tag">Trabajo remoto</div>
+    </div>
+    <div style="margin-top:16px">
+      <a class="btn" href="#contact">Contratar / Contacto</a>
+      <a class="btn" style="margin-left:8px" href="/CV_Marcos_Paz_Goncheff.pdf" target="_blank">Descargar CV</a>
+    </div>
+  </div>
+
+  <aside class="card">
+    <h3 class="mono">Áreas de especialización</h3>
+    <div class="skills" style="margin-top:10px">
+      <div class="skill">Java <small class="muted">Backend</small></div>
+      <div class="skill">Spring Boot <small class="muted">APIs, Seguridad</small></div>
+      <div class="skill">MySQL <small class="muted">Diseño DB</small></div>
+      <div class="skill">Hibernate / JPA <small class="muted">ORM</small></div>
+      <div class="skill">Git <small class="muted">Control de versiones</small></div>
+      <div class="skill">Angular <small class="muted">Frontend</small></div>
+    </div>
+    <div style="margin-top:14px" class="mono">Antes de mi carrera en desarrollo trabajé más de 5 años en administración de empresas comerciales y rurales, lo que me da una perspectiva estratégica y orientada a resultados.</div>
+  </aside>
+</section>
+
+<!-- Habilidades -->
+<section id="skills" style="margin-top:26px">
+  <h2>Habilidades técnicas</h2>
+  <div class="card" style="margin-top:12px;padding:18px">
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div class="tag">Java</div>
+      <div class="tag">Spring Boot</div>
+      <div class="tag">REST APIs</div>
+      <div class="tag">MySQL</div>
+      <div class="tag">Hibernate / JPA</div>
+      <div class="tag">Git / GitHub</div>
+      <div class="tag">Angular</div>
+      <div class="tag">HTML / CSS / JS</div>
+      <div class="tag">Docker (básico)</div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyectos -->
+<section id="projects" style="margin-top:26px">
+<h2>Proyectos destacados</h2>
+<div class="projects">
+
+<article class="project">
+  <div class="cover" style="background-image:url('./img/LogoOpenGraph.ac4c4af1.png')"></div>
+  <div class="p-body">
+    <div class="p-title">Clon Ualá (Fintech)</div>
+    <div class="p-desc">Backend con Spring Boot y MySQL. Endpoints para gestión de cuentas, transferencias y seguridad (auth).</div>
+    <div class="p-links">
+      <a class="btn" href="https://github.com/No-Country/s10-05-t-java-angular-uala/tree/main/backend/uala" target="_blank">Ver backend (GitHub)</a>
+    </div>
+  </div>
+</article>
+
+<article class="project">
+  <div class="cover" style="background-image:url('./img/Binance-Bitcoin.png')"></div>
+  <div class="p-body">
+    <div class="p-title">Clon Binance (Exchange)</div>
+    <div class="p-desc">Proyecto de exchange de criptomonedas. Roles, gestión de órdenes y manejo de balances (proyecto académico).</div>
+    <div class="p-links">
+      <a class="btn" href="https://github.com/No-Country/s8-01-t-java-angular-binance" target="_blank">Repositorio</a>
+    </div>
+  </div>
+</article>
+
+<article class="project">
+  <div class="cover" style="background-image:url('./img/compralistp.png')"></div>
+  <div class="p-body">
+    <div class="p-title">Compra Listo (listas colaborativas)</div>
+    <div class="p-desc">Plataforma web/móvil para crear y compartir listas de compras colaborativas.</div>
+    <div class="p-links"><a class="btn" href="https://github.com/No-Country/s7-11-t-javareact" target="_blank">Repositorio</a><a class="btn" href="https://www.youtube.com/watch?v=61GHekJtqFQ&ab_channel=MarcosEliasPazGoncheff" target="_blank">Video demo</a></div>
+  </div>
+</article>
+
+
+<article class="project">
+  <div class="cover" style="background-image:url('./img/68747470733a2f2f692e706f7374696d672e63632f5072316e534766382f41746c616e7469732d496e76656e74746f72792e706e67.png')"></div>
+  <div class="p-body">
+    <div class="p-title">Atlantis</div>
+    <div class="p-desc">Plataforma web/móvil para administrar pequeños negocios.</div>
+    <div class="p-links"><a class="btn" href="https://github.com/No-Country/s7-11-t-javareact" target="_blank">Repositorio</a><a class="btn" href="https://www.youtube.com/watch?v=8-mVqbQ0E4s&ab_channel=MarcosEliasPazGoncheff" target="_blank">Video demo</a></div>
+  </div>
+</article>
+
+
+<article class="project">
+  <div class="cover" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=60')"></div>
+  <div class="p-body">
+    <div class="p-title">API Teatro (Reserva de entradas)</div>
+    <div class="p-desc">API REST para reserva y venta de entradas. Modelado de funciones, butacas y transacciones.</div>
+    <div class="p-links"><a class="btn" href="https://github.com/No-Country/C4-G12-T-Teatro" target="_blank">Repositorio</a></div>
+  </div>
+</article>
+
+</div>
+</section>
+
+<!-- Experiencia -->
+<section id="experience" style="margin-top:26px">
+<h2>Experiencia</h2>
+<div class="timeline card" style="padding:16px;">
+
+<div class="exp">
+  <div class="logo-sm">NC</div>
+  <div class="meta">
+    <div style="font-weight:700">Desarrollador de back-end — No Country</div>
+    <small class="muted">ago 2023 - sept 2023 · Profesional independiente (Remoto)</small>
+    <div class="muted" style="margin-top:6px">Desarrollo de clon de billetera digital (Ualá). Implementación de endpoints, integración MySQL y medidas de seguridad.</div>
+  </div>
+</div>
+
+<div class="exp">
+  <div class="logo-sm">NC</div>
+  <div class="meta">
+    <div style="font-weight:700">Desarrollador de back-end — No Country</div>
+    <small class="muted">jun 2023 - jun 2023 · Remoto</small>
+    <div class="muted" style="margin-top:6px">Clon de exchange de criptomonedas (Binance). Diseño de flujos y manejo de datos financieros.</div>
+  </div>
+</div>
+
+<div class="exp">
+  <div class="logo-sm">NC</div>
+  <div class="meta">
+    <div style="font-weight:700">Desarrollador de back-end — No Country</div>
+    <small class="muted">abr 2023 - abr 2023 · Remoto</small>
+    <div class="muted" style="margin-top:6px">Desarrollo de "Compra Listo" y otras herramientas enfocadas en comercio electrónico y gestión.</div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- Certificaciones -->
+<section id="certifications" style="margin-top:26px">
+<h2>Licencias y Certificaciones</h2>
+<div class="certifications">
+
+<!-- Ejemplo de tarjeta de certificación -->
+<div class="cert-card">
+  <div style="display:flex;align-items:center">
+    <div>
+      <h4>Codo a Codo 4.0 - Full Stack Java 4.0</h4>
+      <small>Ministerio de Educación — Expedición: jul. 2024</small>
+      <small>Aptitudes: Java · Desarrollo web back end · Desarrollo de aplicaciones web</small>
+      <a class="btn" href="Diploma_CAC.pdf" target="_blank">Ver diploma</a>
+    </div>
+  </div>
+</div>
+
+<div class="cert-card">
+  <div style="display:flex;align-items:center">
+    <div>
+      <h4>Inglés nivel 3</h4>
+      <small>Universidad Tecnológica Nacional — Expedición: jun. 2023</small>
+      <small>ID de credencial: FGUkioHKVQ</small>
+    </div>
+  </div>
+</div>
+
+<div class="cert-card">
+  <div style="display:flex;align-items:center">
+    
+    <div>
+      <h4>Inglés para Programadores 2</h4>
+      <small>Informatorio Chaco — Expedición: mar. 2023</small>
+      <small>Aptitudes: Entrevista laboral · Tiempos verbales simples y continuos · Redacción de email de trabajo</small>
+    </div>
+  </div>
+</div>
+
+<div class="cert-card">
+  <div style="display:flex;align-items:center">
+    <div>
+      <h4>Nivel 4 Inglés A2.2</h4>
+      <small>Argentina Programa — Expedición: mar. 2023</small>
+      <small>Aptitudes: Inglés</small>
+    </div>
+  </div>
+</div>
+
+<div class="cert-card">
+  <div style="display:flex;align-items:center">
+    <div>
+      <h4>Web Full Stack Junior</h4>
+      <small>Argentina Programa — Expedición: ene. 2023</small>
+      <small>ID de credencial: Xhe1kj3cEJ</small>
+      <small>Aptitudes: Spring Boot · Js · Git · java · Css · Angular · Trabajo en equipo · HTML5</small>
+    </div>
+  </div>
+</div>
+
+<!-- Se pueden añadir el resto de certificaciones de la misma forma -->
+
+</div>
+</section>
+
+<!-- Contacto -->
+<section id="contact" style="margin-top:26px">
+<h2>Contacto</h2>
+<div class="card" style="padding:18px">
+<div class="contact-grid">
+  <div>
+    <p class="muted">¿Tenés un proyecto o querés colaborar? Mandame un mensaje:</p>
+    <div style="margin-top:12px">
+      <div class="mono">Email: <a href="mailto:marcos@example.com" style="color:var(--accent);text-decoration:none">marcos@example.com</a></div>
+      <div class="mono" style="margin-top:6px">Ubicación: Chaco, Argentina</div>
+      <div style="margin-top:8px"><a class="btn" href="https://www.linkedin.com/in/marcos-paz-goncheff/" target="_blank">LinkedIn</a></div>
+    </div>
+  </div>
+  <form onsubmit="handleSubmit(event)">
+    <input name="name" type="text" placeholder="Tu nombre" required />
+    <input name="email" type="email" placeholder="Tu email" required />
+    <textarea name="message" rows="5" placeholder="Tu mensaje"></textarea>
+    <button class="primary" type="submit">Enviar mensaje</button>
+  </form>
+</div>
+</div>
+</section>
+
+</main>
+<footer>
+© 2025 Marcos Paz Goncheff — Analista en Sistemas / Desarrollador Web.
+</footer>
+</div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+menuBtn.addEventListener('click', ()=>{
+  const nav = document.querySelector('nav');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.flexDirection = 'column';
+  nav.style.position = 'absolute';
+  nav.style.right = '24px';
+  nav.style.top = '72px';
+  nav.style.background = 'linear-gradient(180deg, rgba(15,17,19,0.98), rgba(10,10,11,0.95))';
+  nav.style.padding = '12px';
+  nav.style.borderRadius = '10px';
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    target.scrollIntoView({behavior:'smooth'});
+  })
+})
+
+function handleSubmit(event){
+  event.preventDefault();
+  alert('Mensaje enviado (simulado).');
+}
+</script>
+</body>
+</html>
